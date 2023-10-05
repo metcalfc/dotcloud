@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # bootstrap installs things.
 
@@ -6,6 +6,8 @@ cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
 
 set -e
+
+source ${DOTFILES_ROOT}/bash/cloud.bash
 
 echo ''
 
@@ -106,12 +108,16 @@ install_dotfiles () {
   info 'installing dotfiles'
 
   local overwrite_all=false backup_all=false skip_all=true
-
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
+
+  if is_daytona; then
+    local overwrite_all=true backup_all=false skip_all=false
+    link_file "${DOTFILES_ROOT}/git/gitconfig.daytona" "${HOME}/.gitconfig"
+  fi
 }
 
 install_dotfiles

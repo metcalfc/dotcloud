@@ -1,2 +1,6 @@
+[user]
+    email = metcalfc@gmail.com
+    name = Chad Metcalf
+    
 [include]
     path = ~/.gitconfig.local

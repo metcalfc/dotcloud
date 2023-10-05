@@ -1,0 +1,16 @@
+[user]
+    email = metcalfc@gmail.com
+    name = Chad Metcalf
+    
+[include]
+    path = ~/.gitconfig.local
+
+[includeIf "hasconfig:remote.*.url:https://github.com/daytonaio/**"]
+    path = ~/.gitconfig-daytona
+
+# SSH remote to cover all bases
+[includeIf "hasconfig:remote.*.url:git@github.com:daytonaio/**"]
+  path = ~/.gitconfig-daytona
+
+[credential]
+    helper = /.ca/ca git-cred

@@ -122,7 +122,7 @@ install_dotfiles () {
   info 'installing bash_aliases'
   # Loop through all the files in the $DOTFILES directory ending in the .bash file extension and source them
 cat << EOF > ~/.bash_aliases
-for file in "${DOTFILES}/bash/*.bash"; do source \$file; done
+for file in ${DOTFILES}/bash/*.bash; do source \$file; done
 EOF
 
 }

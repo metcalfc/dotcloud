@@ -7,9 +7,7 @@ function is_codespaces() {
 }
 
 function is_daytona() {
-    # todo return the second check when we fix env vars in local vs code
-    # test -e /.ca/ca && test -v DAYTONA_WS_ID;
-    test -e /.ca/ca;
+    test -e /.daytona/daytona || test -v $DAYTONA_WS_ID;
 }
 
 function is_remote {

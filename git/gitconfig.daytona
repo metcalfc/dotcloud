@@ -12,8 +12,5 @@
 [includeIf "hasconfig:remote.*.url:git@github.com:daytonaio/**"]
   path = ~/.gitconfig-daytona
 
-[safe]
-    directory = /.ca/dotfiles
-
 [credential]
-    helper = /.ca/ca git-cred
+    helper = /.daytona/daytona git-cred

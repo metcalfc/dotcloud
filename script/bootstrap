@@ -115,6 +115,7 @@ install_dotfiles () {
   done
 
   if is_daytona; then
+    rm -f ~/.gitconfig
     local overwrite_all=true backup_all=false skip_all=false
     link_file "${DOTFILES}/git/gitconfig.daytona" "${HOME}/.gitconfig"
   fi
